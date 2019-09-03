@@ -3,9 +3,15 @@
 #include "stm32f4xx_usart.h"            
 #include "stm32f4xx_rcc.h"
 #include "string.h"
+#include "stdbool.h"
 
-uint16_t array[8];
-uint16_t pos;
+//uint16_t array[8];
+//uint16_t pos;
+
+uint8_t rs232_value;
+
+bool rs232_is_ready = false;
+
 void LedInit()
 {
 	GPIO_InitTypeDef GPIO_InitStruct;
@@ -59,7 +65,7 @@ void Uart2Init()
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
 		
 	USART_StructInit(&USART_InitStruct);
-	USART_InitStruct.USART_BaudRate = 115200*3;
+	USART_InitStruct.USART_BaudRate = 115200;
   USART_InitStruct.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
 
 	USART_OverSampling8Cmd(USART1, ENABLE);
@@ -80,7 +86,7 @@ void RS232Init()
 	Uart2PortInit();
 	Uart2Init();
 	
-	pos = 0;
+	//pos = 0;
 }
 
 void RS232Send(uint8_t data)
@@ -109,12 +115,15 @@ void USART1_IRQHandler(void)
 	if (USART_GetITStatus(USART1, USART_IT_RXNE))
 	{
 		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
-		if(pos<8)
-		{
-			array[pos] = USART_ReceiveData(USART1);
-			pos++;
-		}
-		else{		pos = 0;}		
+		//if(pos<8)
+		//{
+		//	array[pos] = USART_ReceiveData(USART1);
+		//	pos++;
+		//}
+		//else{		pos = 0;}
+		rs232_value = USART_ReceiveData(USART1);
+		rs232_is_ready = true;
+		
 	}
 }
 

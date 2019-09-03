@@ -869,13 +869,14 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=.\objects\startup_stm32f40_41xxx.d -o.\objects\startup_stm32f40
-_41xxx.o -ID:\Ivanenkov\program\keil\stm32\tim_freq\tim_freq\RTE -ID:\Ivanenkov
-\program\keil\stm32\tim_freq\tim_freq\RTE\Device\STM32F405RG -IC:\Keil\ARM\PACK
-\ARM\CMSIS\4.5.0\CMSIS\Include -IC:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Devi
-ce\Include -IC:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\StdPeriph_Driver\
-inc --predefine="__UVISION_VERSION SETA 520" --predefine="_RTE_ SETA 1" --prede
-fine="STM32F40_41xxx SETA 1" --list=.\listings\startup_stm32f40_41xxx.lst RTE\D
-evice\STM32F405RG\startup_stm32f40_41xxx.s
+_41xxx.o -ID:\project\keil\stm32\tim_freq\RTE -ID:\project\keil\stm32\tim_freq\
+RTE\Device\STM32F405RG -IC:\Keil\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include -IC:\Ke
+il\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC -IC:\Keil\ARM\PACK\Keil\STM32F4x
+x_DFP\1.0.8\Device\Include -IC:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\S
+tdPeriph_Driver\inc --predefine="__RTX SETA 1" --predefine="__UVISION_VERSION S
+ETA 520" --predefine="_RTE_ SETA 1" --predefine="STM32F40_41xxx SETA 1" --list=
+.\listings\startup_stm32f40_41xxx.lst RTE\Device\STM32F405RG\startup_stm32f40_4
+1xxx.s
 
 
 
@@ -1988,4 +1989,4 @@ Symbol: __use_two_region_memory
       None
 Comment: __use_two_region_memory unused
 3 symbols
-449 symbols in table
+450 symbols in table
